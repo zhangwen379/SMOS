@@ -1,0 +1,65 @@
+if [[ ! -d bin ]];then mkdir bin;fi
+if [[ ! -d /media/share/smos/os/../editor/include ]];then mkdir /media/share/smos/os/../editor/include;fi
+if [[ ! -d /media/share/smos/os/../editor/bin ]];then mkdir /media/share/smos/os/../editor/bin;fi
+cd bin && rm -f ./*
+cd /media/share/smos/os/../editor/include && rm -f ./*
+gcc -Wall -I include/ -c -fno-builtin -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers 4_system/main.c -o bin/main.o
+gcc -Wall -I include/ -c -fno-builtin -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers 2_operator/interrupt/interrupt_timer.c -o bin/interrupt_timer.o
+gcc -Wall -I include/ -c -fno-builtin -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers 2_operator/interrupt/interrupt_keyboard.c -o bin/interrupt_keyboard.o
+gcc -Wall -I include/ -c -fno-builtin -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers 2_operator/interrupt/interrupt_init.c -o bin/interrupt_init.o
+nasm -f elf 2_operator/interrupt/idt_entry_table.S -o bin/idt_entry_table.o
+nasm -f elf 0_bios/print.S -o bin/print.o
+gcc -Wall -I include/ -c -fno-builtin -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers 1_data/struct/array_str.c -o bin/array_str.o
+gcc -Wall -I include/ -c -fno-builtin -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers 1_data/struct/queue.c -o bin/queue.o
+gcc -Wall -I include/ -c -fno-builtin -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers debug/trace.c -o bin/trace.o
+gcc -Wall -I include/ -c -fno-builtin -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers 1_data/memory/memory.c -o bin/memory.o
+gcc -Wall -I include/ -c -fno-builtin -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers 1_data/struct/bitmap.c -o bin/bitmap.o
+gcc -Wall -I include/ -c -fno-builtin -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers 1_data/struct/list.c -o bin/list.o
+gcc -Wall -I include/ -c -fno-builtin -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers 3_process/process.c -o bin/process.o
+gcc -Wall -I include/ -c -fno-builtin -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers 1_data/disk/disk.c -o bin/disk.o
+gcc -Wall -I include/ -c -fno-builtin -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers 1_data/disk/smfs.c -o bin/smfs.o
+gcc -Wall -I include/ -c -fno-builtin -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers 1_data/disk/smfs_dir_entry.c -o bin/smfs_dir_entry.o
+gcc -Wall -I include/ -c -fno-builtin -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers 1_data/disk/smfs_node.c -o bin/smfs_node.o
+gcc -Wall -I include/ -c -fno-builtin -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers 1_data/disk/path.c -o bin/path.o
+gcc -Wall -I include/ -c -fno-builtin -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers 4_system/kernel.c -o bin/kernel.o
+gcc -Wall -I include/ -c -fno-builtin -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers 4_system/explore.c -o bin/explore.o
+gcc -Wall -I include/ -c -fno-builtin -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers 1_data/screen/screen.c -o bin/screen.o
+gcc -Wall -I include/ -c -fno-builtin -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers 4_system/syscall.c -o bin/syscall.o
+gcc -Wall -I include/ -c -fno-builtin -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers 2_operator/interrupt/interrupt_syscall.c -o bin/interrupt_syscall.o
+gcc -Wall -I include/ -c -fno-builtin -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers 1_data/disk/fat32.c -o bin/fat32.o
+gcc -Wall -I include/ -c -fno-builtin -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers 1_data/disk/fat32_dir_entry.c -o bin/fat32_dir_entry.o
+gcc -Wall -I include/ -c -fno-builtin -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers 1_data/disk/fat32_node.c -o bin/fat32_node.o
+gcc -Wall -I include/ -c -fno-builtin -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers 1_data/disk/fat32_path.c -o bin/fat32_path.o
+gcc -Wall -I include/ -c -fno-builtin -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers 1_data/disk/smfs_path.c -o bin/smfs_path.o
+gcc -Wall -I include/ -c -fno-builtin -W -Wstrict-prototypes -Wmissing-prototypes -Wsystem-headers 4_system/msg_desc.c -o bin/msg_desc.o
+ld  -Ttext 0x0022a500 -e main -Map bin/kernel.map bin/main.o bin/interrupt_timer.o bin/interrupt_keyboard.o bin/interrupt_init.o bin/idt_entry_table.o bin/print.o bin/array_str.o bin/queue.o bin/trace.o bin/memory.o bin/bitmap.o bin/list.o bin/process.o bin/disk.o bin/smfs.o bin/smfs_dir_entry.o bin/smfs_node.o bin/path.o bin/kernel.o bin/explore.o bin/screen.o bin/syscall.o bin/interrupt_syscall.o bin/fat32.o bin/fat32_dir_entry.o bin/fat32_node.o bin/fat32_path.o bin/smfs_path.o bin/msg_desc.o -o bin/kernel.bin
+nasm -I 0_bios/ 0_bios/bios_section.S -o bin/bios_section.bin
+nasm -I 0_bios/ 0_bios/protect_set.S -o bin/protect_set.bin
+ar rcs bin/smos_lib.a bin/list.o bin/trace.o \
+bin/array_str.o bin/print.o bin/queue.o bin/syscall.o
+dd if=bin/kernel.bin of=/media/share/smos/os/../Bochs-2.6.9/hd80M.img bs=512 count=1970 seek=75 conv=notrunc
+280+1 records in
+280+1 records out
+143564 bytes (144 kB) copied, 0.0252268 s, 5.7 MB/s
+dd if=bin/bios_section.bin of=/media/share/smos/os/../Bochs-2.6.9/hd80M.img bs=446 count=1  conv=notrunc
+1+0 records in
+1+0 records out
+446 bytes (446 B) copied, 0.00109932 s, 406 kB/s
+dd if=bin/protect_set.bin of=/media/share/smos/os/../Bochs-2.6.9/hd80M.img bs=512 count=4 seek=70 conv=notrunc
+2+1 records in
+2+1 records out
+1187 bytes (1.2 kB) copied, 0.000995214 s, 1.2 MB/s
+dd if=bin/kernel.bin of=/dev/sdb bs=512 count=1970 seek=75 conv=notrunc
+280+1 records in
+280+1 records out
+143564 bytes (144 kB) copied, 0.00108725 s, 132 MB/s
+dd if=bin/bios_section.bin of=/dev/sdb bs=446 count=1  conv=notrunc
+1+0 records in
+1+0 records out
+446 bytes (446 B) copied, 0.00043803 s, 1.0 MB/s
+dd if=bin/protect_set.bin of=/dev/sdb bs=512 count=4 seek=70 conv=notrunc
+2+1 records in
+2+1 records out
+1187 bytes (1.2 kB) copied, 0.000440761 s, 2.7 MB/s
+cp /media/share/smos/os/include/*.* /media/share/smos/os/../editor/include
+cp bin/smos_lib.a /media/share/smos/os/../editor/bin

@@ -1,0 +1,430 @@
+Archive member included to satisfy reference by file (symbol)
+
+bin/smos_lib.a(list.o)        bin/main.o (list_append)
+bin/smos_lib.a(array_str.o)   bin/main.o (strlen)
+bin/smos_lib.a(syscall.o)     bin/main.o (syscall_malloc_block)
+
+Discarded input sections
+
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/main.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/smos_lib.a(list.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/smos_lib.a(array_str.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/smos_lib.a(syscall.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+Address of section .text set to 0x48048000
+LOAD bin/main.o
+LOAD bin/smos_lib.a
+                [!provide]                        PROVIDE (__executable_start, 0x8048000)
+                0x0000000008048094                . = (0x8048000 + SIZEOF_HEADERS)
+
+.interp
+ *(.interp)
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.hash
+ *(.hash)
+
+.gnu.hash
+ *(.gnu.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.dyn
+ *(.rel.init)
+ *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
+ *(.rel.fini)
+ *(.rel.rodata .rel.rodata.* .rel.gnu.linkonce.r.*)
+ *(.rel.data.rel.ro .rel.data.rel.ro.* .rel.gnu.linkonce.d.rel.ro.*)
+ *(.rel.data .rel.data.* .rel.gnu.linkonce.d.*)
+ *(.rel.tdata .rel.tdata.* .rel.gnu.linkonce.td.*)
+ *(.rel.tbss .rel.tbss.* .rel.gnu.linkonce.tb.*)
+ *(.rel.ctors)
+ *(.rel.dtors)
+ *(.rel.got)
+ *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
+ *(.rel.ifunc)
+
+.rel.plt        0x0000000008048094        0x0
+ *(.rel.plt)
+                [!provide]                        PROVIDE (__rel_iplt_start, .)
+ *(.rel.iplt)
+                [!provide]                        PROVIDE (__rel_iplt_end, .)
+
+.init
+ *(SORT(.init))
+
+.plt
+ *(.plt)
+ *(.iplt)
+
+.plt.got
+ *(.plt.got)
+
+.text           0x0000000048048000     0x2b64
+ *(.text.unlikely .text.*_unlikely .text.unlikely.*)
+ *(.text.exit .text.exit.*)
+ *(.text.startup .text.startup.*)
+ *(.text.hot .text.hot.*)
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ .text          0x0000000048048000     0x13bf bin/main.o
+                0x0000000048048b52                main
+ .text          0x00000000480493bf      0x256 bin/smos_lib.a(list.o)
+                0x00000000480493bf                list_init
+                0x00000000480493fe                list_insert_after
+                0x0000000048049437                list_insert_before
+                0x000000004804946e                list_push
+                0x0000000048049488                list_append
+                0x00000000480494a5                list_remove
+                0x00000000480494cf                list_pop
+                0x00000000480494ee                list_is_empty
+                0x0000000048049507                list_len
+                0x000000004804953c                list_node_belong
+                0x0000000048049550                list_node_get_by_index
+                0x0000000048049594                list_node_get_by_id
+                0x00000000480495d0                list_node_get_max_id
+ .text          0x0000000048049615      0x84b bin/smos_lib.a(array_str.o)
+                0x0000000048049615                atoi
+                0x00000000480496fa                itoa
+                0x0000000048049838                strlen
+                0x000000004804985f                strcat
+                0x00000000480498af                memset
+                0x00000000480498e1                memcpy
+                0x000000004804991b                memcmp
+                0x0000000048049979                strcpy
+                0x00000000480499a9                strcmp
+                0x0000000048049a09                strcmp1
+                0x0000000048049a89                strchr
+                0x0000000048049abc                strrchr
+                0x0000000048049af5                make_upper
+                0x0000000048049b5d                make_lower
+                0x0000000048049bc5                vsprintf
+                0x0000000048049e2f                sprintf
+ .text          0x0000000048049e60      0xd04 bin/smos_lib.a(syscall.o)
+                0x0000000048049e83                syscall_malloc_block
+                0x0000000048049eae                syscall_free_block
+                0x0000000048049ed1                syscall_get_partition_list
+                0x0000000048049eed                syscall_init_ide_channel_desc
+                0x0000000048049f09                syscall_disk_read
+                0x0000000048049f49                syscall_disk_write
+                0x0000000048049f89                syscall_partition_format_to_smfs
+                0x0000000048049fac                syscall_get_partition_by_name
+                0x0000000048049fcf                syscall_create_path_file
+                0x0000000048049ff2                syscall_open_path_file
+                0x000000004804a015                syscall_del_path_file
+                0x000000004804a038                syscall_create_path_dir
+                0x000000004804a05b                syscall_open_path_dir
+                0x000000004804a07e                syscall_del_path
+                0x000000004804a0a1                syscall_copy_file
+                0x000000004804a0cb                syscall_copy_path
+                0x000000004804a0f5                syscall_rename_path
+                0x000000004804a11f                syscall_get_path_status
+                0x000000004804a149                syscall_make_dir_string
+                0x000000004804a174                syscall_make_file_string
+                0x000000004804a1a6                syscall_close_file
+                0x000000004804a1c9                syscall_close_dir
+                0x000000004804a1ec                syscall_write_file
+                0x000000004804a224                syscall_read_file
+                0x000000004804a25c                syscall_malloc_format_buff
+                0x000000004804a28e                syscall_free_format_buff
+                0x000000004804a2b1                syscall_malloc_screen_block
+                0x000000004804a314                syscall_free_screen_block
+                0x000000004804a337                syscall_clear_screen_block
+                0x000000004804a35a                syscall_fresh_screen_block_rect
+                0x000000004804a399                syscall_fresh_screen_block
+                0x000000004804a3bc                syscall_fresh_screen_block_pos
+                0x000000004804a3fb                syscall_fresh_screen_block_list_rect
+                0x000000004804a43a                syscall_fresh_screen_block_list
+                0x000000004804a45d                syscall_buff_to_format_buff
+                0x000000004804a4a4                syscall_format_buff_to_buff
+                0x000000004804a4dd                syscall_get_buff_from_block_by_buffpos
+                0x000000004804a524                syscall_get_buff_from_block_by_color
+                0x000000004804a564                syscall_get_buff_from_block_all
+                0x000000004804a58f                syscall_get_buff_from_block_by_ch
+                0x000000004804a5e4                syscall_set_buff_to_block
+                0x000000004804a62a                syscall_insert_to_screen_block
+                0x000000004804a670                syscall_appand_to_screen_block
+                0x000000004804a6a8                syscall_delete_from_screen_block
+                0x000000004804a6e7                syscall_select_screen_block
+                0x000000004804a73b                syscall_select_screen_block_by_ch
+                0x000000004804a79d                syscall_unselect_screen_block_by_color
+                0x000000004804a7d5                syscall_unselect_screen_block
+                0x000000004804a829                syscall_reset_screen_block_offset
+                0x000000004804a84c                syscall_point_in_rect
+                0x000000004804a87d                syscall_point_in_screenlock_list
+                0x000000004804a8b5                syscall_clear_and_set_block
+                0x000000004804a8f4                syscall_get_screenblock_by_id
+                0x000000004804a91e                syscall_get_screen_size
+                0x000000004804a948                syscall_add_msgdesc_to_list
+                0x000000004804a980                syscall_get_mouse
+                0x000000004804a99c                syscall_get_cursor
+                0x000000004804a9bf                syscall_get_system_command_str
+                0x000000004804a9e3                syscall_post_msg_to_kcb
+                0x000000004804aa0d                syscall_post_msg_to_pcb
+                0x000000004804aa3e                syscall_set_clipboard
+                0x000000004804aa76                syscall_get_clipboard
+                0x000000004804aa92                syscall_clear_cursor
+                0x000000004804aab5                syscall_set_state
+                0x000000004804aadf                syscall_set_output
+                0x000000004804ab02                syscall_add_path_to_pcb
+                0x000000004804ab2c                syscall_panic_reset
+ *(.gnu.warning)
+
+.fini
+ *(SORT(.fini))
+                [!provide]                        PROVIDE (__etext, .)
+                [!provide]                        PROVIDE (_etext, .)
+                [!provide]                        PROVIDE (etext, .)
+
+.rodata         0x000000004804ab64       0x94
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata        0x000000004804ab64       0x94 bin/main.o
+
+.rodata1
+ *(.rodata1)
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+ *(.eh_frame_entry .eh_frame_entry.*)
+
+.eh_frame       0x000000004804abf8      0xda8
+ *(.eh_frame)
+ .eh_frame      0x000000004804abf8      0x180 bin/main.o
+ .eh_frame      0x000000004804ad78      0x1a0 bin/smos_lib.a(list.o)
+                                        0x1b8 (size before relaxing)
+ .eh_frame      0x000000004804af18      0x208 bin/smos_lib.a(array_str.o)
+                                        0x220 (size before relaxing)
+ .eh_frame      0x000000004804b120      0x880 bin/smos_lib.a(syscall.o)
+                                        0x898 (size before relaxing)
+ *(.eh_frame.*)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.gnu_extab
+ *(.gnu_extab*)
+
+.exception_ranges
+ *(.exception_ranges .exception_ranges*)
+                0x000000004804d000                . = DATA_SEGMENT_ALIGN (0x1000, 0x1000)
+
+.eh_frame
+ *(.eh_frame)
+ *(.eh_frame.*)
+
+.gnu_extab
+ *(.gnu_extab)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.exception_ranges
+ *(.exception_ranges .exception_ranges*)
+
+.tdata
+ *(.tdata .tdata.* .gnu.linkonce.td.*)
+
+.tbss
+ *(.tbss .tbss.* .gnu.linkonce.tb.*)
+ *(.tcommon)
+
+.preinit_array  0x000000004804d000        0x0
+                [!provide]                        PROVIDE (__preinit_array_start, .)
+ *(.preinit_array)
+                [!provide]                        PROVIDE (__preinit_array_end, .)
+
+.init_array     0x000000004804d000        0x0
+                [!provide]                        PROVIDE (__init_array_start, .)
+ *(SORT(.init_array.*) SORT(.ctors.*))
+ *(.init_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .ctors)
+                [!provide]                        PROVIDE (__init_array_end, .)
+
+.fini_array     0x000000004804d000        0x0
+                [!provide]                        PROVIDE (__fini_array_start, .)
+ *(SORT(.fini_array.*) SORT(.dtors.*))
+ *(.fini_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .dtors)
+                [!provide]                        PROVIDE (__fini_array_end, .)
+
+.ctors
+ *crtbegin.o(.ctors)
+ *crtbegin?.o(.ctors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .ctors)
+ *(SORT(.ctors.*))
+ *(.ctors)
+
+.dtors
+ *crtbegin.o(.dtors)
+ *crtbegin?.o(.dtors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .dtors)
+ *(SORT(.dtors.*))
+ *(.dtors)
+
+.jcr
+ *(.jcr)
+
+.data.rel.ro
+ *(.data.rel.ro.local* .gnu.linkonce.d.rel.ro.local.*)
+ *(.data.rel.ro .data.rel.ro.* .gnu.linkonce.d.rel.ro.*)
+
+.dynamic
+ *(.dynamic)
+
+.got
+ *(.got)
+ *(.igot)
+                0x000000004804d000                . = DATA_SEGMENT_RELRO_END (., (SIZEOF (.got.plt) >= 0xc)?0xc:0x0)
+
+.got.plt        0x000000004804d000        0x0
+ *(.got.plt)
+ *(.igot.plt)
+
+.data           0x000000004804d000        0x0
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x000000004804d000        0x0 bin/main.o
+ .data          0x000000004804d000        0x0 bin/smos_lib.a(list.o)
+ .data          0x000000004804d000        0x0 bin/smos_lib.a(array_str.o)
+ .data          0x000000004804d000        0x0 bin/smos_lib.a(syscall.o)
+
+.data1
+ *(.data1)
+                0x000000004804d000                _edata = .
+                [!provide]                        PROVIDE (edata, .)
+                0x000000004804d000                . = .
+                0x000000004804d000                __bss_start = .
+
+.bss            0x000000004804d000        0x4
+ *(.dynbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x000000004804d000        0x4 bin/main.o
+                0x000000004804d000                m_EditorPCB
+ .bss           0x000000004804d004        0x0 bin/smos_lib.a(list.o)
+ .bss           0x000000004804d004        0x0 bin/smos_lib.a(array_str.o)
+ .bss           0x000000004804d004        0x0 bin/smos_lib.a(syscall.o)
+ *(COMMON)
+                0x000000004804d004                . = ALIGN ((. != 0x0)?0x4:0x1)
+                0x000000004804d004                . = ALIGN (0x4)
+                0x000000004804d004                . = SEGMENT_START ("ldata-segment", .)
+                0x000000004804d004                . = ALIGN (0x4)
+                0x000000004804d004                _end = .
+                [!provide]                        PROVIDE (end, .)
+                0x000000004804d004                . = DATA_SEGMENT_END (.)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0x2d
+ *(.comment)
+ .comment       0x0000000000000000       0x2d bin/main.o
+                                         0x2e (size before relaxing)
+ .comment       0x000000000000002d       0x2e bin/smos_lib.a(list.o)
+ .comment       0x000000000000002d       0x2e bin/smos_lib.a(array_str.o)
+ .comment       0x000000000000002d       0x2e bin/smos_lib.a(syscall.o)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info .gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line .debug_line.* .debug_line_end)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges
+ *(.debug_ranges)
+
+.debug_macro
+ *(.debug_macro)
+
+.gnu.attributes
+ *(.gnu.attributes)
+
+/DISCARD/
+ *(.note.GNU-stack)
+ *(.gnu_debuglink)
+ *(.gnu.lto_*)
+OUTPUT(bin/editor.bin elf32-i386)

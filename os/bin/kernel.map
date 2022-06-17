@@ -1,0 +1,972 @@
+
+Allocating common symbols
+Common symbol       size              file
+
+intrrupt_Cfun_table
+                    0x204             bin/interrupt_init.o
+m_gKCB              0x1460            bin/kernel.o
+channels            0x78              bin/disk.o
+m_pExplorePCB       0x4               bin/explore.o
+syscall_table       0x320             bin/interrupt_syscall.o
+idt_desc_array      0x408             bin/interrupt_init.o
+intrrupt_Cfun_name  0x204             bin/interrupt_init.o
+partition_list      0x20              bin/disk.o
+
+Discarded input sections
+
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/main.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/interrupt_timer.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/interrupt_keyboard.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/interrupt_init.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/array_str.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/queue.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/trace.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/memory.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/bitmap.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/list.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/process.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/disk.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/smfs.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/smfs_dir_entry.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/smfs_node.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/path.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/kernel.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/explore.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/screen.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/syscall.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/interrupt_syscall.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/fat32.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/fat32_dir_entry.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/fat32_node.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/fat32_path.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/smfs_path.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 bin/msg_desc.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+Address of section .text set to 0x22a500
+LOAD bin/main.o
+LOAD bin/interrupt_timer.o
+LOAD bin/interrupt_keyboard.o
+LOAD bin/interrupt_init.o
+LOAD bin/idt_entry_table.o
+LOAD bin/print.o
+LOAD bin/array_str.o
+LOAD bin/queue.o
+LOAD bin/trace.o
+LOAD bin/memory.o
+LOAD bin/bitmap.o
+LOAD bin/list.o
+LOAD bin/process.o
+LOAD bin/disk.o
+LOAD bin/smfs.o
+LOAD bin/smfs_dir_entry.o
+LOAD bin/smfs_node.o
+LOAD bin/path.o
+LOAD bin/kernel.o
+LOAD bin/explore.o
+LOAD bin/screen.o
+LOAD bin/syscall.o
+LOAD bin/interrupt_syscall.o
+LOAD bin/fat32.o
+LOAD bin/fat32_dir_entry.o
+LOAD bin/fat32_node.o
+LOAD bin/fat32_path.o
+LOAD bin/smfs_path.o
+LOAD bin/msg_desc.o
+                [!provide]                        PROVIDE (__executable_start, 0x8048000)
+                0x0000000008048094                . = (0x8048000 + SIZEOF_HEADERS)
+
+.interp
+ *(.interp)
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.hash
+ *(.hash)
+
+.gnu.hash
+ *(.gnu.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.dyn        0x0000000008048094        0x0
+ *(.rel.init)
+ *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
+ .rel.text      0x0000000008048094        0x0 bin/main.o
+ *(.rel.fini)
+ *(.rel.rodata .rel.rodata.* .rel.gnu.linkonce.r.*)
+ *(.rel.data.rel.ro .rel.data.rel.ro.* .rel.gnu.linkonce.d.rel.ro.*)
+ *(.rel.data .rel.data.* .rel.gnu.linkonce.d.*)
+ *(.rel.tdata .rel.tdata.* .rel.gnu.linkonce.td.*)
+ *(.rel.tbss .rel.tbss.* .rel.gnu.linkonce.tb.*)
+ *(.rel.ctors)
+ *(.rel.dtors)
+ *(.rel.got)
+ *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
+ *(.rel.ifunc)
+
+.rel.plt        0x0000000008048094        0x0
+ *(.rel.plt)
+                [!provide]                        PROVIDE (__rel_iplt_start, .)
+ *(.rel.iplt)
+                [!provide]                        PROVIDE (__rel_iplt_end, .)
+
+.init
+ *(SORT(.init))
+
+.plt
+ *(.plt)
+ *(.iplt)
+
+.plt.got
+ *(.plt.got)
+
+.text           0x000000000022a500    0x17e67
+ *(.text.unlikely .text.*_unlikely .text.unlikely.*)
+ *(.text.exit .text.exit.*)
+ *(.text.startup .text.startup.*)
+ *(.text.hot .text.hot.*)
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ .text          0x000000000022a500       0x65 bin/main.o
+                0x000000000022a500                main
+ .text          0x000000000022a565      0x7b3 bin/interrupt_timer.o
+                0x000000000022a814                interrupt_timer_init
+                0x000000000022a8b7                getBIOSTime
+                0x000000000022a9df                setBIOSTime
+                0x000000000022aa9c                formatBiosTime
+                0x000000000022ab31                TRACEBIOSTime
+                0x000000000022abb8                GetCounter
+                0x000000000022abc2                Sleep
+                0x000000000022abf7                set_timer
+                0x000000000022acb7                kill_timer
+ .text          0x000000000022ad18      0xd93 bin/interrupt_keyboard.o
+                0x000000000022ae5e                fresh_keyboard_state
+                0x000000000022b9e5                interrupt_keyboard_init
+ .text          0x000000000022baab      0x5f0 bin/interrupt_init.o
+                0x000000000022bf2f                intrrupt_all_init
+                0x000000000022bff2                sti
+                0x000000000022bff8                cli
+                0x000000000022bffe                register_handler
+                0x000000000022c01a                panic_reset
+ *fill*         0x000000000022c09b        0x5 
+ .text          0x000000000022c0a0      0x7bf bin/idt_entry_table.o
+                0x000000000022c0a0                intr_exit
+                0x000000000022c823                intrrupt_syscall_handler
+ *fill*         0x000000000022c85f        0x1 
+ .text          0x000000000022c860      0x10b bin/print.o
+                0x000000000022c860                print_str
+                0x000000000022c89b                print_wordchars
+                0x000000000022c8d7                print_n_wordchar
+                0x000000000022c911                get_wordchars
+                0x000000000022c94e                clear_screen
+ .text          0x000000000022c96b      0x84b bin/array_str.o
+                0x000000000022c96b                atoi
+                0x000000000022ca50                itoa
+                0x000000000022cb8e                strlen
+                0x000000000022cbb5                strcat
+                0x000000000022cc05                memset
+                0x000000000022cc37                memcpy
+                0x000000000022cc71                memcmp
+                0x000000000022cccf                strcpy
+                0x000000000022ccff                strcmp
+                0x000000000022cd5f                strcmp1
+                0x000000000022cddf                strchr
+                0x000000000022ce12                strrchr
+                0x000000000022ce4b                make_upper
+                0x000000000022ceb3                make_lower
+                0x000000000022cf1b                vsprintf
+                0x000000000022d185                sprintf
+ .text          0x000000000022d1b6      0x271 bin/queue.o
+                0x000000000022d1b6                msgq_init
+                0x000000000022d1d9                msgq_prev_pos
+                0x000000000022d1f1                msgq_next_pos
+                0x000000000022d20c                msgq_isfull
+                0x000000000022d236                msgq_isempty
+                0x000000000022d255                msgq_getmsg
+                0x000000000022d332                msgq_pushmsg
+                0x000000000022d38d                msgq_putmsg
+                0x000000000022d3e8                make_message
+ .text          0x000000000022d427      0x25f bin/trace.o
+                0x000000000022d427                trace
+                0x000000000022d519                panic
+                0x000000000022d541                console_output
+ .text          0x000000000022d686      0xe05 bin/memory.o
+                0x000000000022d686                fresh_pageTable_cr3
+                0x000000000022d693                make_pte2_offset_vptr
+                0x000000000022d6c3                make_pte1_offset_vptr
+                0x000000000022d6df                map_vaddr_pages
+                0x000000000022d7a0                map_paddr_page
+                0x000000000022d7fb                map_page_table
+                0x000000000022d8b3                malloc_pages
+                0x000000000022d96a                malloc_page_ex
+                0x000000000022da2a                vaddr_to_paddr
+                0x000000000022da56                page_to_block
+                0x000000000022da6c                block_to_page
+                0x000000000022da79                malloc_block
+                0x000000000022dd48                unmap_paddr_page
+                0x000000000022dd99                unmap_page_table
+                0x000000000022ddc3                unmap_vAddr_pages
+                0x000000000022de3d                free_pages
+                0x000000000022e111                free_block
+                0x000000000022e23f                init_mem_block_desc
+                0x000000000022e2dc                init_virtual_addr_desc
+                0x000000000022e356                init_physics_addr_desc
+                0x000000000022e403                create_page_dir
+                0x000000000022e46b                page_dir_install
+ .text          0x000000000022e48b      0x207 bin/bitmap.o
+                0x000000000022e48b                bitmap_init
+                0x000000000022e50b                bitmap_scan
+                0x000000000022e5f4                bitmap_set
+ .text          0x000000000022e692      0x256 bin/list.o
+                0x000000000022e692                list_init
+                0x000000000022e6d1                list_insert_after
+                0x000000000022e70a                list_insert_before
+                0x000000000022e741                list_push
+                0x000000000022e75b                list_append
+                0x000000000022e778                list_remove
+                0x000000000022e7a2                list_pop
+                0x000000000022e7c1                list_is_empty
+                0x000000000022e7da                list_len
+                0x000000000022e80f                list_node_belong
+                0x000000000022e823                list_node_get_by_index
+                0x000000000022e867                list_node_get_by_id
+                0x000000000022e8a3                list_node_get_max_id
+ .text          0x000000000022e8e8      0x859 bin/process.o
+                0x000000000022e977                create_process
+                0x000000000022ed40                load_process
+                0x000000000022eef3                exit_process
+ .text          0x000000000022f141     0x1543 bin/disk.o
+                0x000000000022f773                get_partition_list
+                0x000000000022f77d                disk_read
+                0x000000000022f986                disk_write
+                0x00000000002303d9                init_ide_channel_desc
+                0x0000000000230560                get_partition_by_name
+                0x00000000002305b8                read_part_index_cache
+                0x000000000023063b                write_part_index_cache
+ .text          0x0000000000230684     0x1918 bin/smfs.o
+                0x00000000002306d0                clear_smfs_block_data
+                0x0000000000230a40                create_smfs_block_bitmap
+                0x0000000000230a97                delete_smfs_block_bitmap
+                0x0000000000230d70                create_get_smfs_disk_block_start_section_by_index
+                0x00000000002312cd                delete_smfs_disk_block
+                0x000000000023188d                write_smfs_disk_cache
+                0x00000000002318f3                get_smfs_disk_block_start_section_by_index
+                0x0000000000231ce4                read_smfs_disk_block
+                0x0000000000231e2e                write_smfs_disk_block
+ .text          0x0000000000231f9c      0x9b0 bin/smfs_dir_entry.o
+                0x0000000000231f9c                make_smfs_dir_entry_name
+                0x0000000000231fc6                get_name_from_smfs_dir_entry
+                0x0000000000231ff8                search_smfs_dir_entry
+                0x0000000000232259                init_smfs_dir_entry
+                0x00000000002322cf                write_smfs_dir_entry
+                0x00000000002324b3                delete_smfs_dir_entry
+                0x00000000002325cb                rename_smfs_dir_entry
+                0x0000000000232761                get_smfs_dir_entry_by_index
+ .text          0x000000000023294c      0xa3d bin/smfs_node.o
+                0x000000000023294c                create_smfs_mem_node
+                0x0000000000232a07                open_smfs_mem_node
+                0x0000000000232aec                close_smfs_mem_node
+                0x0000000000232b51                write_smfs_disk_node
+                0x0000000000232bfd                read_smfs_disk_node
+                0x0000000000232c89                delete_smfs_disk_node
+                0x0000000000232e5a                write_smfs_to_disk
+                0x0000000000233173                read_smfs_from_disk
+ .text          0x0000000000233389     0x19f1 bin/path.o
+                0x00000000002333e0                path_parse
+                0x000000000023343d                get_path_file_count
+                0x0000000000233534                create_path_file
+                0x00000000002335e2                open_path_file
+                0x0000000000233690                del_path_file
+                0x0000000000233712                create_path_dir
+                0x00000000002337c0                open_path_dir
+                0x000000000023386e                del_path
+                0x00000000002338f0                copy_file
+                0x0000000000233cad                copy_path
+                0x0000000000234842                rename_path
+                0x000000000023489a                make_dir_string
+                0x000000000023490e                make_file_string
+                0x0000000000234980                get_path_status
+                0x00000000002349d7                close_file
+                0x0000000000234a2e                close_dir
+                0x0000000000234a85                write_file
+                0x0000000000234b07                read_file
+                0x0000000000234b89                get_file_size
+                0x0000000000234bc9                partition_format_to_smfs
+ .text          0x0000000000234d7a     0x31b4 bin/kernel.o
+                0x0000000000234d7a                init_KCB
+                0x0000000000235841                mf_system_mouse
+                0x0000000000236109                mf_system_keyboard
+                0x000000000023683b                mf_system_timer
+                0x0000000000236928                mf_system_block_command_left
+                0x0000000000236dc8                mf_system_block_command_right
+                0x0000000000236dcd                mf_system_process_init
+                0x0000000000236e99                mf_system_process_load
+                0x0000000000236f2c                mf_system_process_exit
+                0x0000000000236f45                mf_system_process_fresh
+                0x0000000000236fe5                mf_system_log
+                0x0000000000237003                set_mouse
+                0x00000000002371c3                set_cursor
+                0x00000000002374f6                clear_cursor
+                0x0000000000237584                get_mouse
+                0x000000000023758e                get_cursor
+                0x00000000002375a5                get_system_command_str
+                0x0000000000237652                fresh_system_sblock_pcb
+                0x0000000000237802                get_processpath_by_suffix
+                0x000000000023785c                post_msg_to_kcb
+                0x00000000002378c0                post_msg_to_pcb
+                0x0000000000237942                set_clipboard
+                0x00000000002379e2                get_clipboard
+                0x00000000002379ec                set_state
+                0x0000000000237ab2                set_output
+                0x0000000000237be4                get_current_process
+                0x0000000000237bee                get_process
+                0x0000000000237c1c                add_path_to_pcb
+                0x0000000000237cc1                is_path_used_by_process
+                0x0000000000237dac                clear_path_from_pcb
+                0x0000000000237e02                set_keyboard_indicate_screenblock
+                0x0000000000237e88                write_log
+ .text          0x0000000000237f2e      0xd28 bin/explore.o
+                0x000000000023897e                explore_main
+ .text          0x0000000000238c56     0x3fa5 bin/screen.o
+                0x0000000000238c56                make_rect
+                0x0000000000238ca9                screen_to_block
+                0x0000000000238ec1                block_to_formatbuff
+                0x0000000000239061                screen_to_formatbuff
+                0x0000000000239130                formatbuff_to_block
+                0x0000000000239348                block_to_screen
+                0x00000000002394e2                formatbuff_to_screen
+                0x00000000002395b1                malloc_format_buff
+                0x000000000023960b                free_format_buff
+                0x0000000000239722                malloc_screen_block
+                0x00000000002398fe                free_screen_block
+                0x000000000023994f                clear_screen_block
+                0x000000000023a54b                fresh_screen_block_rect
+                0x000000000023a732                fresh_screen_block
+                0x000000000023a771                fresh_screen_block_buffpos
+                0x000000000023a7f5                fresh_screen_block_pos
+                0x000000000023a88d                point_in_rect
+                0x000000000023a905                fresh_screen_block_list_rect
+                0x000000000023aa20                fresh_screen_block_list
+                0x000000000023aa58                buff_to_format_buff
+                0x000000000023abc6                format_buff_to_buff
+                0x000000000023aec8                get_buff_from_block_by_buffpos
+                0x000000000023b04e                get_buff_from_block_by_color
+                0x000000000023b1ed                get_buff_from_block_all
+                0x000000000023b27e                get_buff_from_block_by_ch
+                0x000000000023b3c2                set_buff_to_block
+                0x000000000023b68b                insert_to_screen_block
+                0x000000000023b9cb                appand_to_screen_block
+                0x000000000023bc29                delete_from_screen_block
+                0x000000000023c0e4                select_screen_block
+                0x000000000023c25c                select_screen_block_by_ch
+                0x000000000023c4a4                unselect_screen_block_by_color
+                0x000000000023c70d                unselect_screen_block
+                0x000000000023c8a6                reset_screen_block_offset
+                0x000000000023c8c7                point_in_screenlock_list
+                0x000000000023c973                ensure_buff_visible
+                0x000000000023c9f8                adjust_screen_block_buffpos
+                0x000000000023ca7c                adjust_screen_block_offset
+                0x000000000023caeb                get_screenblock_by_id
+                0x000000000023cb18                get_screen_size
+                0x000000000023cb33                free_sblock_list
+                0x000000000023cb92                clear_and_set_block
+ .text          0x000000000023cbfb      0xd04 bin/syscall.o
+                0x000000000023cc1e                syscall_malloc_block
+                0x000000000023cc49                syscall_free_block
+                0x000000000023cc6c                syscall_get_partition_list
+                0x000000000023cc88                syscall_init_ide_channel_desc
+                0x000000000023cca4                syscall_disk_read
+                0x000000000023cce4                syscall_disk_write
+                0x000000000023cd24                syscall_partition_format_to_smfs
+                0x000000000023cd47                syscall_get_partition_by_name
+                0x000000000023cd6a                syscall_create_path_file
+                0x000000000023cd8d                syscall_open_path_file
+                0x000000000023cdb0                syscall_del_path_file
+                0x000000000023cdd3                syscall_create_path_dir
+                0x000000000023cdf6                syscall_open_path_dir
+                0x000000000023ce19                syscall_del_path
+                0x000000000023ce3c                syscall_copy_file
+                0x000000000023ce66                syscall_copy_path
+                0x000000000023ce90                syscall_rename_path
+                0x000000000023ceba                syscall_get_path_status
+                0x000000000023cee4                syscall_make_dir_string
+                0x000000000023cf0f                syscall_make_file_string
+                0x000000000023cf41                syscall_close_file
+                0x000000000023cf64                syscall_close_dir
+                0x000000000023cf87                syscall_write_file
+                0x000000000023cfbf                syscall_read_file
+                0x000000000023cff7                syscall_malloc_format_buff
+                0x000000000023d029                syscall_free_format_buff
+                0x000000000023d04c                syscall_malloc_screen_block
+                0x000000000023d0af                syscall_free_screen_block
+                0x000000000023d0d2                syscall_clear_screen_block
+                0x000000000023d0f5                syscall_fresh_screen_block_rect
+                0x000000000023d134                syscall_fresh_screen_block
+                0x000000000023d157                syscall_fresh_screen_block_pos
+                0x000000000023d196                syscall_fresh_screen_block_list_rect
+                0x000000000023d1d5                syscall_fresh_screen_block_list
+                0x000000000023d1f8                syscall_buff_to_format_buff
+                0x000000000023d23f                syscall_format_buff_to_buff
+                0x000000000023d278                syscall_get_buff_from_block_by_buffpos
+                0x000000000023d2bf                syscall_get_buff_from_block_by_color
+                0x000000000023d2ff                syscall_get_buff_from_block_all
+                0x000000000023d32a                syscall_get_buff_from_block_by_ch
+                0x000000000023d37f                syscall_set_buff_to_block
+                0x000000000023d3c5                syscall_insert_to_screen_block
+                0x000000000023d40b                syscall_appand_to_screen_block
+                0x000000000023d443                syscall_delete_from_screen_block
+                0x000000000023d482                syscall_select_screen_block
+                0x000000000023d4d6                syscall_select_screen_block_by_ch
+                0x000000000023d538                syscall_unselect_screen_block_by_color
+                0x000000000023d570                syscall_unselect_screen_block
+                0x000000000023d5c4                syscall_reset_screen_block_offset
+                0x000000000023d5e7                syscall_point_in_rect
+                0x000000000023d618                syscall_point_in_screenlock_list
+                0x000000000023d650                syscall_clear_and_set_block
+                0x000000000023d68f                syscall_get_screenblock_by_id
+                0x000000000023d6b9                syscall_get_screen_size
+                0x000000000023d6e3                syscall_add_msgdesc_to_list
+                0x000000000023d71b                syscall_get_mouse
+                0x000000000023d737                syscall_get_cursor
+                0x000000000023d75a                syscall_get_system_command_str
+                0x000000000023d77e                syscall_post_msg_to_kcb
+                0x000000000023d7a8                syscall_post_msg_to_pcb
+                0x000000000023d7d9                syscall_set_clipboard
+                0x000000000023d811                syscall_get_clipboard
+                0x000000000023d82d                syscall_clear_cursor
+                0x000000000023d850                syscall_set_state
+                0x000000000023d87a                syscall_set_output
+                0x000000000023d89d                syscall_add_path_to_pcb
+                0x000000000023d8c7                syscall_panic_reset
+ .text          0x000000000023d8ff      0x2a3 bin/interrupt_syscall.o
+                0x000000000023d8ff                interrupt_syscall_init
+ .text          0x000000000023dba2      0xbf6 bin/fat32.o
+                0x000000000023dd0b                get_fat_cluster_next
+                0x000000000023ddaf                get_first_unused_cluster
+                0x000000000023deb1                read_disk_cluster
+                0x000000000023e0aa                write_disk_cluster
+                0x000000000023e2e1                clear_disk_cluster
+                0x000000000023e395                get_fat_cluster_by_index
+                0x000000000023e3d8                get_fat_cluster_count
+                0x000000000023e453                get_last_cluster
+                0x000000000023e4b6                set_fat_cluster_next
+                0x000000000023e62e                insert_fat_cluster
+                0x000000000023e6b4                clear_and_remove_cluster_to_end
+ .text          0x000000000023e798      0x8a2 bin/fat32_dir_entry.o
+                0x000000000023e798                get_name_from_fat32_dir_entry
+                0x000000000023e8b7                make_fat32_dir_entry_name
+                0x000000000023e9d5                init_fat32_dir_entry
+                0x000000000023ea4f                search_fat32_dir_entry
+                0x000000000023ecf9                write_fat32_dir_entry
+                0x000000000023efd5                delete_fat32_dir_entry
+ .text          0x000000000023f03a      0xab5 bin/fat32_node.o
+                0x000000000023f03a                create_fat32_mem_node
+                0x000000000023f11f                open_fat32_mem_node
+                0x000000000023f291                write_fat32_disk_node
+                0x000000000023f2d9                close_fat32_mem_node
+                0x000000000023f326                delete_fat32_disk_node
+                0x000000000023f4b1                write_fat32_to_disk
+                0x000000000023f7f7                read_fat32_from_disk
+ .text          0x000000000023faef     0x146a bin/fat32_path.o
+                0x000000000023fd71                is_path_exist_fat32
+                0x000000000023fdbc                get_path_status_fat32
+                0x000000000023fe3f                create_path_fat32
+                0x000000000023fef8                open_path_fat32
+                0x000000000023ff5b                del_path_file_fat32
+                0x000000000023fffb                del_path_fat32
+                0x0000000000240367                copy_file_fat32
+                0x00000000002404eb                copy_path_fat32
+                0x0000000000240aaa                rename_path_fat32
+                0x0000000000240bff                make_dir_string_fat32
+ .text          0x0000000000240f59     0x101a bin/smfs_path.o
+                0x00000000002411a8                is_path_exist_smfs
+                0x00000000002411ef                get_path_status_smfs
+                0x000000000024130c                create_path_smfs
+                0x00000000002413bf                open_path_smfs
+                0x0000000000241443                del_path_file_smfs
+                0x0000000000241562                del_path_smfs
+                0x00000000002416e8                copy_file_smfs
+                0x000000000024180e                copy_path_smfs
+                0x0000000000241c4a                rename_path_smfs
+                0x0000000000241ce5                make_dir_string_smfs
+ .text          0x0000000000241f73      0x3f4 bin/msg_desc.o
+                0x0000000000241f73                get_msg_desc_by_id
+                0x0000000000241fb5                get_msg_desc_by_name
+                0x0000000000242005                add_msgdesc_to_list
+                0x0000000000242051                free_msgdesc_list
+                0x00000000002420b0                do_Msg
+ *(.gnu.warning)
+
+.fini
+ *(SORT(.fini))
+                [!provide]                        PROVIDE (__etext, .)
+                [!provide]                        PROVIDE (_etext, .)
+                [!provide]                        PROVIDE (etext, .)
+
+.rodata         0x0000000000242380     0x1824
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata        0x0000000000242380        0x8 bin/main.o
+ .rodata        0x0000000000242388       0x65 bin/interrupt_timer.o
+ *fill*         0x00000000002423ed        0x3 
+ .rodata        0x00000000002423f0      0x178 bin/interrupt_keyboard.o
+ .rodata        0x0000000000242568      0x3f3 bin/interrupt_init.o
+ *fill*         0x000000000024295b        0x1 
+ .rodata        0x000000000024295c      0x13f bin/memory.o
+ .rodata        0x0000000000242a9b       0x81 bin/process.o
+ .rodata        0x0000000000242b1c      0x223 bin/disk.o
+ *fill*         0x0000000000242d3f        0x1 
+ .rodata        0x0000000000242d40      0x1d6 bin/smfs.o
+ *fill*         0x0000000000242f16        0x2 
+ .rodata        0x0000000000242f18       0x79 bin/smfs_dir_entry.o
+ *fill*         0x0000000000242f91        0x3 
+ .rodata        0x0000000000242f94       0xcd bin/smfs_node.o
+ *fill*         0x0000000000243061        0x3 
+ .rodata        0x0000000000243064       0xf2 bin/path.o
+ .rodata        0x0000000000243156      0x12e bin/kernel.o
+ .rodata        0x0000000000243284       0xd2 bin/explore.o
+ *fill*         0x0000000000243356        0x2 
+ .rodata        0x0000000000243358      0x20f bin/screen.o
+ *fill*         0x0000000000243567       0x19 
+ .rodata        0x0000000000243580       0xe0 bin/fat32.o
+ .rodata        0x0000000000243660       0x53 bin/fat32_dir_entry.o
+ *fill*         0x00000000002436b3        0x1 
+ .rodata        0x00000000002436b4       0xc4 bin/fat32_node.o
+ .rodata        0x0000000000243778      0x1f4 bin/fat32_path.o
+ .rodata        0x000000000024396c      0x206 bin/smfs_path.o
+ .rodata        0x0000000000243b72       0x32 bin/msg_desc.o
+
+.rodata1
+ *(.rodata1)
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+ *(.eh_frame_entry .eh_frame_entry.*)
+
+.eh_frame       0x0000000000243ba4     0x34d8
+ *(.eh_frame)
+ .eh_frame      0x0000000000243ba4       0x38 bin/main.o
+ .eh_frame      0x0000000000243bdc      0x21c bin/interrupt_timer.o
+                                        0x234 (size before relaxing)
+ .eh_frame      0x0000000000243df8      0x1e0 bin/interrupt_keyboard.o
+                                        0x1f8 (size before relaxing)
+ .eh_frame      0x0000000000243fd8      0x198 bin/interrupt_init.o
+                                        0x1b0 (size before relaxing)
+ .eh_frame      0x0000000000244170      0x208 bin/array_str.o
+                                        0x220 (size before relaxing)
+ .eh_frame      0x0000000000244378      0x120 bin/queue.o
+                                        0x138 (size before relaxing)
+ .eh_frame      0x0000000000244498       0x74 bin/trace.o
+                                         0x8c (size before relaxing)
+ .eh_frame      0x000000000024450c      0x2cc bin/memory.o
+                                        0x2e4 (size before relaxing)
+ .eh_frame      0x00000000002447d8       0x8c bin/bitmap.o
+                                         0xa4 (size before relaxing)
+ .eh_frame      0x0000000000244864      0x1a0 bin/list.o
+                                        0x1b8 (size before relaxing)
+ .eh_frame      0x0000000000244a04       0xa0 bin/process.o
+                                         0xb8 (size before relaxing)
+ .eh_frame      0x0000000000244aa4      0x310 bin/disk.o
+                                        0x328 (size before relaxing)
+ .eh_frame      0x0000000000244db4      0x204 bin/smfs.o
+                                        0x21c (size before relaxing)
+ .eh_frame      0x0000000000244fb8      0x100 bin/smfs_dir_entry.o
+                                        0x118 (size before relaxing)
+ .eh_frame      0x00000000002450b8      0x114 bin/smfs_node.o
+                                        0x12c (size before relaxing)
+ .eh_frame      0x00000000002451cc      0x2c8 bin/path.o
+                                        0x2e0 (size before relaxing)
+ .eh_frame      0x0000000000245494      0x44c bin/kernel.o
+                                        0x464 (size before relaxing)
+ .eh_frame      0x00000000002458e0      0x104 bin/explore.o
+                                        0x11c (size before relaxing)
+ .eh_frame      0x00000000002459e4      0x700 bin/screen.o
+                                        0x718 (size before relaxing)
+ .eh_frame      0x00000000002460e4      0x880 bin/syscall.o
+                                        0x898 (size before relaxing)
+ .eh_frame      0x0000000000246964       0x20 bin/interrupt_syscall.o
+                                         0x38 (size before relaxing)
+ .eh_frame      0x0000000000246984      0x1dc bin/fat32.o
+                                        0x1f4 (size before relaxing)
+ .eh_frame      0x0000000000246b60       0xc4 bin/fat32_dir_entry.o
+                                         0xdc (size before relaxing)
+ .eh_frame      0x0000000000246c24       0xf0 bin/fat32_node.o
+                                        0x108 (size before relaxing)
+ .eh_frame      0x0000000000246d14      0x160 bin/fat32_path.o
+                                        0x178 (size before relaxing)
+ .eh_frame      0x0000000000246e74      0x16c bin/smfs_path.o
+                                        0x184 (size before relaxing)
+ .eh_frame      0x0000000000246fe0       0x9c bin/msg_desc.o
+                                         0xb4 (size before relaxing)
+ *(.eh_frame.*)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.gnu_extab
+ *(.gnu_extab*)
+
+.exception_ranges
+ *(.exception_ranges .exception_ranges*)
+                0x0000000000249000                . = DATA_SEGMENT_ALIGN (0x1000, 0x1000)
+
+.eh_frame
+ *(.eh_frame)
+ *(.eh_frame.*)
+
+.gnu_extab
+ *(.gnu_extab)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.exception_ranges
+ *(.exception_ranges .exception_ranges*)
+
+.tdata
+ *(.tdata .tdata.* .gnu.linkonce.td.*)
+
+.tbss
+ *(.tbss .tbss.* .gnu.linkonce.tb.*)
+ *(.tcommon)
+
+.preinit_array  0x0000000000249000        0x0
+                [!provide]                        PROVIDE (__preinit_array_start, .)
+ *(.preinit_array)
+                [!provide]                        PROVIDE (__preinit_array_end, .)
+
+.init_array     0x0000000000249000        0x0
+                [!provide]                        PROVIDE (__init_array_start, .)
+ *(SORT(.init_array.*) SORT(.ctors.*))
+ *(.init_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .ctors)
+                [!provide]                        PROVIDE (__init_array_end, .)
+
+.fini_array     0x0000000000249000        0x0
+                [!provide]                        PROVIDE (__fini_array_start, .)
+ *(SORT(.fini_array.*) SORT(.dtors.*))
+ *(.fini_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .dtors)
+                [!provide]                        PROVIDE (__fini_array_end, .)
+
+.ctors
+ *crtbegin.o(.ctors)
+ *crtbegin?.o(.ctors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .ctors)
+ *(SORT(.ctors.*))
+ *(.ctors)
+
+.dtors
+ *crtbegin.o(.dtors)
+ *crtbegin?.o(.dtors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .dtors)
+ *(SORT(.dtors.*))
+ *(.dtors)
+
+.jcr
+ *(.jcr)
+
+.data.rel.ro
+ *(.data.rel.ro.local* .gnu.linkonce.d.rel.ro.local.*)
+ *(.data.rel.ro .data.rel.ro.* .gnu.linkonce.d.rel.ro.*)
+
+.dynamic
+ *(.dynamic)
+
+.got
+ *(.got)
+ *(.igot)
+                0x0000000000249000                . = DATA_SEGMENT_RELRO_END (., (SIZEOF (.got.plt) >= 0xc)?0xc:0x0)
+
+.got.plt        0x0000000000249000        0x0
+ *(.got.plt)
+ *(.igot.plt)
+
+.data           0x0000000000249000      0x408
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x0000000000249000        0x0 bin/main.o
+ .data          0x0000000000249000        0x0 bin/interrupt_timer.o
+ .data          0x0000000000249000      0x319 bin/interrupt_keyboard.o
+                0x0000000000249000                keyboard_to_msgstr
+                0x00000000002492e0                padboard_to_msgstr
+                0x000000000024930c                code_state
+                0x0000000000249310                mouse_byte_count
+                0x0000000000249314                mouse_move_devide
+                0x0000000000249318                mouse_move_count
+ .data          0x0000000000249319        0x0 bin/interrupt_init.o
+ *fill*         0x0000000000249319        0x3 
+ .data          0x000000000024931c       0xc0 bin/idt_entry_table.o
+                0x000000000024931c                intrrupt_Afun_table
+ .data          0x00000000002493dc        0x0 bin/array_str.o
+ .data          0x00000000002493dc        0x0 bin/queue.o
+ .data          0x00000000002493dc        0x4 bin/trace.o
+ .data          0x00000000002493e0        0x4 bin/memory.o
+ .data          0x00000000002493e4        0x0 bin/bitmap.o
+ .data          0x00000000002493e4        0x0 bin/list.o
+ .data          0x00000000002493e4        0x0 bin/process.o
+ .data          0x00000000002493e4        0xc bin/disk.o
+                0x00000000002493e4                pstr_fat32
+                0x00000000002493e8                pstr_smfs
+                0x00000000002493ec                pstr_nofs
+ .data          0x00000000002493f0       0x10 bin/smfs.o
+                0x00000000002493f0                direct_block_count
+                0x00000000002493f4                indirect1_block_count
+                0x00000000002493f8                indirect2_block_count
+                0x00000000002493fc                indirect3_block_count
+ .data          0x0000000000249400        0x0 bin/smfs_dir_entry.o
+ .data          0x0000000000249400        0x0 bin/smfs_node.o
+ .data          0x0000000000249400        0x0 bin/path.o
+ .data          0x0000000000249400        0x0 bin/kernel.o
+ .data          0x0000000000249400        0x0 bin/explore.o
+ .data          0x0000000000249400        0x8 bin/screen.o
+                0x0000000000249400                screen_width
+                0x0000000000249404                screen_height
+ .data          0x0000000000249408        0x0 bin/syscall.o
+ .data          0x0000000000249408        0x0 bin/interrupt_syscall.o
+ .data          0x0000000000249408        0x0 bin/fat32.o
+ .data          0x0000000000249408        0x0 bin/fat32_dir_entry.o
+ .data          0x0000000000249408        0x0 bin/fat32_node.o
+ .data          0x0000000000249408        0x0 bin/fat32_path.o
+ .data          0x0000000000249408        0x0 bin/smfs_path.o
+ .data          0x0000000000249408        0x0 bin/msg_desc.o
+
+.data1
+ *(.data1)
+                0x0000000000249408                _edata = .
+                [!provide]                        PROVIDE (edata, .)
+                0x0000000000249408                . = .
+                0x0000000000249408                __bss_start = .
+
+.bss            0x0000000000249420     0x2100
+ *(.dynbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x0000000000249420        0x0 bin/main.o
+ .bss           0x0000000000249420        0x8 bin/interrupt_timer.o
+                0x0000000000249420                bpos
+ .bss           0x0000000000249428       0x26 bin/interrupt_keyboard.o
+                0x0000000000249428                keycode_buff
+                0x0000000000249430                keycode_buff_times
+                0x0000000000249434                keyboard_state_config
+                0x0000000000249438                keycode_byte_data
+                0x000000000024943c                keyInsert
+                0x0000000000249440                mouse_type
+                0x0000000000249444                mouse_byte_x
+                0x0000000000249448                mouse_byte_y
+                0x000000000024944c                mouse_byte_status
+ *fill*         0x000000000024944e        0x2 
+ .bss           0x0000000000249450        0x4 bin/interrupt_init.o
+ .bss           0x0000000000249454        0x0 bin/array_str.o
+ .bss           0x0000000000249454        0x0 bin/queue.o
+ .bss           0x0000000000249454        0x0 bin/trace.o
+ .bss           0x0000000000249454       0x18 bin/memory.o
+                0x0000000000249454                p_kernel_block
+                0x0000000000249458                p_user_block
+                0x000000000024945c                p_kernel_paddr_desc
+                0x0000000000249460                p_user_paddr_desc
+                0x0000000000249464                p_kernel_vaddr_desc
+                0x0000000000249468                p_user_vaddr_desc
+ .bss           0x000000000024946c        0x0 bin/bitmap.o
+ .bss           0x000000000024946c        0x0 bin/list.o
+ .bss           0x000000000024946c        0x0 bin/process.o
+ .bss           0x000000000024946c        0x0 bin/disk.o
+ .bss           0x000000000024946c        0x0 bin/smfs.o
+ .bss           0x000000000024946c        0x0 bin/smfs_dir_entry.o
+ .bss           0x000000000024946c        0x0 bin/smfs_node.o
+ .bss           0x000000000024946c        0x0 bin/path.o
+ .bss           0x000000000024946c        0x8 bin/kernel.o
+ .bss           0x0000000000249474        0x0 bin/explore.o
+ .bss           0x0000000000249474        0x0 bin/screen.o
+ .bss           0x0000000000249474        0x0 bin/syscall.o
+ .bss           0x0000000000249474        0x0 bin/interrupt_syscall.o
+ .bss           0x0000000000249474        0x0 bin/fat32.o
+ .bss           0x0000000000249474        0x0 bin/fat32_dir_entry.o
+ .bss           0x0000000000249474        0x0 bin/fat32_node.o
+ .bss           0x0000000000249474        0x0 bin/fat32_path.o
+ .bss           0x0000000000249474        0x0 bin/smfs_path.o
+ .bss           0x0000000000249474        0x0 bin/msg_desc.o
+ *(COMMON)
+ *fill*         0x0000000000249474        0xc 
+ COMMON         0x0000000000249480      0x844 bin/interrupt_init.o
+                0x0000000000249480                intrrupt_Cfun_table
+                0x00000000002496a0                idt_desc_array
+                0x0000000000249ac0                intrrupt_Cfun_name
+ *fill*         0x0000000000249cc4       0x1c 
+ COMMON         0x0000000000249ce0       0xa0 bin/disk.o
+                0x0000000000249ce0                channels
+                0x0000000000249d60                partition_list
+ COMMON         0x0000000000249d80     0x1460 bin/kernel.o
+                0x0000000000249d80                m_gKCB
+ COMMON         0x000000000024b1e0        0x4 bin/explore.o
+                0x000000000024b1e0                m_pExplorePCB
+ *fill*         0x000000000024b1e4       0x1c 
+ COMMON         0x000000000024b200      0x320 bin/interrupt_syscall.o
+                0x000000000024b200                syscall_table
+                0x000000000024b520                . = ALIGN ((. != 0x0)?0x4:0x1)
+                0x000000000024b520                . = ALIGN (0x4)
+                0x000000000024b520                . = SEGMENT_START ("ldata-segment", .)
+                0x000000000024b520                . = ALIGN (0x4)
+                0x000000000024b520                _end = .
+                [!provide]                        PROVIDE (end, .)
+                0x000000000024b520                . = DATA_SEGMENT_END (.)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000       0x2d
+ *(.comment)
+ .comment       0x0000000000000000       0x2d bin/main.o
+                                         0x2e (size before relaxing)
+ .comment       0x000000000000002d       0x2e bin/interrupt_timer.o
+ .comment       0x000000000000002d       0x2e bin/interrupt_keyboard.o
+ .comment       0x000000000000002d       0x2e bin/interrupt_init.o
+ .comment       0x000000000000002d       0x2e bin/array_str.o
+ .comment       0x000000000000002d       0x2e bin/queue.o
+ .comment       0x000000000000002d       0x2e bin/trace.o
+ .comment       0x000000000000002d       0x2e bin/memory.o
+ .comment       0x000000000000002d       0x2e bin/bitmap.o
+ .comment       0x000000000000002d       0x2e bin/list.o
+ .comment       0x000000000000002d       0x2e bin/process.o
+ .comment       0x000000000000002d       0x2e bin/disk.o
+ .comment       0x000000000000002d       0x2e bin/smfs.o
+ .comment       0x000000000000002d       0x2e bin/smfs_dir_entry.o
+ .comment       0x000000000000002d       0x2e bin/smfs_node.o
+ .comment       0x000000000000002d       0x2e bin/path.o
+ .comment       0x000000000000002d       0x2e bin/kernel.o
+ .comment       0x000000000000002d       0x2e bin/explore.o
+ .comment       0x000000000000002d       0x2e bin/screen.o
+ .comment       0x000000000000002d       0x2e bin/syscall.o
+ .comment       0x000000000000002d       0x2e bin/interrupt_syscall.o
+ .comment       0x000000000000002d       0x2e bin/fat32.o
+ .comment       0x000000000000002d       0x2e bin/fat32_dir_entry.o
+ .comment       0x000000000000002d       0x2e bin/fat32_node.o
+ .comment       0x000000000000002d       0x2e bin/fat32_path.o
+ .comment       0x000000000000002d       0x2e bin/smfs_path.o
+ .comment       0x000000000000002d       0x2e bin/msg_desc.o
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info .gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line .debug_line.* .debug_line_end)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges
+ *(.debug_ranges)
+
+.debug_macro
+ *(.debug_macro)
+
+.gnu.attributes
+ *(.gnu.attributes)
+
+/DISCARD/
+ *(.note.GNU-stack)
+ *(.gnu_debuglink)
+ *(.gnu.lto_*)
+OUTPUT(bin/kernel.bin elf32-i386)
