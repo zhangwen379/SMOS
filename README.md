@@ -7,8 +7,8 @@
 </ul>
 <p>You can click \Bochs-2.6.9\bochs.exe to see its finial Execution effect like:</p>
 <img src="/smos.jpg" alt="smos.jpg"> </img>
-
-## SMOS Features：
+<hr />
+<h2>SMOS Features：</h2>
 <ol>
 <li>It has 32-bit addressing capability, supports memory addresses within 4G, and supports page table directory.</li>
 <li>It is compatible with lba28 and lba48 hard disk read and write modes, and supports a single 2TB hard disk at most.</li>
@@ -26,7 +26,8 @@
 <li>Support to display the current input, output and status name.</li>
 <li>Support color character display effect.</li>
 <li>Support hard disk and U disk loading and startup.</li>
-## Editor.bin Features：
+  
+<h2> Editor.bin Features：</h2>
 <li>Can open suffix Txt file, and format the display characters.</li>
 <li>Can display the file string path of  current character set file.</li>
 <li>Can list files with the same suffix under the current file path.</li>
