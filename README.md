@@ -17,7 +17,7 @@
 <li>It supports the first set of keyboard coding, the left and right mouse buttons and wheel operations, and can perform mouse and keyboard operations similar to Windows 7 for SMOS controls.</li>
 <li>Support timer and display BIOS time.</li>
 <li>Support command line operation and shell output.</li>
-<li>It supports file management similar to Windows 7 file resource manager, and can create, move and delete files and directories.</li>
+<li>It supports file management similar to Windows 7 file explorer manager, and can create, move and delete files and directories.</li>
 <li>Support multiple processes running at the same time.</li>
 <li>It supports loading, enumerating, switching and exiting of  processes similar to Windows 7 process manager.
 <li>Support interrupt non downtime processing.</li>
