@@ -6,7 +6,8 @@
 <li>for SMOS : It's all about Signal.</li>
 </ul>
 <p>You can click \Bochs-2.6.9\bochs.exe to see its finial Execution effect like:</p>
-<img src="/smos.jpg" alt="smos.jpg"> </img>
+<img src="/smos.png" alt="smos.png"> </img>
+
 <h2>SMOS Features：</h2>
 <ol>
 <li>It has 32-bit addressing capability, supports memory addresses within 4G, and supports page table directory.</li>
