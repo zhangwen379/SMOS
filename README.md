@@ -17,11 +17,11 @@
 <li>Support timer and display BIOS time.</li>
 <li>Support command line operation and shell output.</li>
 <li>It supports file management similar to Windows 7 file resource manager, and can create, move and delete files and directories.</li>
-<li>Support multiple applications running at the same time.</li>
-<li>It supports loading, enumerating, switching and exiting of application processes similar to Windows 7 process manager.
+<li>Support multiple processes running at the same time.</li>
+<li>It supports loading, enumerating, switching and exiting of  processes similar to Windows 7 process manager.
 <li>Support interrupt non downtime processing.</li>
 <li>Support operation and error file recording.</li>
-<li>It supports stopping and starting the application message processing process.</li>
+<li>It supports stopping and starting the process message processing process.</li>
 <li>Support to display the current input, output and status name.</li>
 <li>Support color character display effect.</li>
 <li>Support hard disk and U disk loading and startup.</li>
@@ -34,8 +34,7 @@
 <li>It can count and display the number of paragraphs, characters and words of the current file.</li>
 <li>The edited file can be saved to the hard disk.</li>
 <li>Able to display the file line number.</li>
-
-<p>I Also write a book (with chinese) give a minute description of specific realization method of SMOS，it will public soon...</p>
+<p>I Also write a book (with chinese) to give a minute description of specific realization method of SMOS，it will public soon...</p>
 
 
 
