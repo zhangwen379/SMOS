@@ -38,7 +38,7 @@
 <li>The edited file can be saved to the hard disk.</li>
 <li>Able to display the file line number.</li>
 </ol>
-<p>I Also write a book (with chinese) to give a minute description of specific realization method of SMOS，it will public soon...</p>
+<p>I Also write a book (with chinese) to give a minute description of specific realization method of SMOS《自制操作系统，基于状态机的操作系统的假设与实现》</p>
 
 
 
