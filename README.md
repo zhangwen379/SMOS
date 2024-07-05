@@ -7,7 +7,7 @@
 </ul>
 <p>You can click \Bochs-2.6.9\bochs.exe to see its finial Execution effect like:</p>
 <img src="https://raw.githubusercontent.com/zhangwen379/SMOS/main/smos.png" alt="smos.png"> </img>
-
+<img src="https://raw.githubusercontent.com/zhangwen379/SMOS/main/system.png" alt="smos.png"> </img>
 <h2>SMOS Features：</h2>
 <ol>
 <li>It has 32-bit addressing capability, supports memory addresses within 4G, and supports page table directory.</li>
